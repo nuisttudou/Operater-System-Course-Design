@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>段页式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./bo/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="./bo/bootstrap.min.css">
+    <script src="bo/bootstrap.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div class="text-center">
+        <h2>逻辑地址:<span id="address">[]</span></h2>
+        <h2>物理地址:<span id="real_address">[]</span></h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>段表</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <th>段号S</th>
+                        <th>页表大小</th>
+                        <th>页表起始地址</th>
+                    </thead>
+                    <tbody id="segtable">
+
+                    </tbody>
+                </table>
+
+                <h3>快表</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <th>地址</th>
+                        <th>进入时间</th>
+                        <th>最近访问时间</th>
+                    </thead>
+                    <tbody id="fasttable">
+
+                    </tbody>
+                </table>
+                <p>
+                    快表更新策略：
+                    <input type="radio" id="FIFO" name="fast" text="">FIFO
+
+                    <input type="radio" id="LRU" name="fast" text="">LRU
+                </p>
+                <button onclick="run()">run</button>
+                <button onclick="test()">test</button>
+
+            </div>
+            <div class="col-sm-4">
+                <h3 id="page_table_address">页表</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <th>页号</th>
+                        <th>存储块</th>
+                    </thead>
+                    <tbody id="pagetable">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <h3>主存片段</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <th>地址</th>
+                    </thead>
+                    <tbody id="memory">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="init.js"></script>
+    <script src="run.js"></script>
+    <script>setMemoryBackground()</script>
+</body>
+
+</html>
